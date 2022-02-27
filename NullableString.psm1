@@ -14,7 +14,7 @@ class NullableString {
         if ($Null -eq $this.Value) { return [NullableString]::New($Null) }
         return [NullableString]([string]$this.Value).ToLower()
     }
-    static [NullableString[]] op_Addition([NullableString] $One, [NullableString] $Two) {
+    static [NullableString] op_Addition([NullableString] $One, [NullableString] $Two) {
         if ($Null -eq $One) { return [NullableString]::New($Two.Value) }
         if ($Null -eq $Two) { return [NullableString]::New($One.Value) }
         return [NullableString]::New([string]$One.Value + [string]$Two.Value)
